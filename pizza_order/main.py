@@ -33,14 +33,29 @@ Your final bill is: $28.
 # todo: work out their final amount based on whether if they want extra cheese.
 
 print("Welcome to Python Pizza Deliveries!")
-size = input("What size pizza do you want? S, M or L: ")
-pepperoni = input("Do you want pepperoni on your pizza? Y or N: ")
-extra_cheese = input("Do you want extra cheese? Y or N: ")
+size = input("What size pizza do you want? S, M or L: ").lower()
+pepperoni = input("Do you want pepperoni on your pizza? Y or N: ").lower()
+extra_cheese = input("Do you want extra cheese? Y or N: ").lower()
 bill = 0
-if size.lower() == "l":
-    bill = 25
-elif size.lower() == "m":
-    bill = 20
+if size == "l":
+    bill += 25
+elif size == "m":
+    bill += 20
+elif size == "s":
+    bill += 15    
 else:
-    bill = 15
-print(bill)
+    print("Invalid input!")
+
+#print(bill)
+
+
+if pepperoni == "y":
+    if size == "s":
+        bill += 2
+    else:
+        bill +=3
+
+if extra_cheese == "y":
+    bill += 1
+
+print(f"Your pizza costs {bill} $.")
